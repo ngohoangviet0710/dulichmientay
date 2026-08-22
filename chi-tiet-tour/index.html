@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tour Lục Tỉnh Miền Tây 4 ngày 3 đêm - dulichmientay</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D42A2A;
+    --red-dark:#B31E1E;
+    --text:#222222;
+    --text-light:#666666;
+    --border:#E5E5E5;
+    --bg-gray:#F7F7F7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', Arial, sans-serif;
+    color:var(--text);
+    background:#FFFFFF;
+  }
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+
+  /* Header (giống trang chủ) */
+  header{
+    background:#FFFFFF;
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; z-index:100;
+  }
+  .header-inner{
+    max-width:1100px; margin:0 auto;
+    padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{ font-size:22px; font-weight:700; color:var(--text); }
+  .logo span{color:var(--red);}
+  nav.main-nav{ display:flex; gap:24px; font-size:14px; font-weight:500; }
+  nav.main-nav a:hover{color:var(--red);}
+  .header-hotline{
+    display:flex; align-items:center; gap:8px;
+    color:var(--red); font-weight:700; font-size:15px;
+  }
+  .header-hotline .icon{
+    width:32px; height:32px; border-radius:50%;
+    background:var(--red); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .header-hotline .icon svg{width:16px; height:16px;}
+
+  /* Breadcrumb */
+  .breadcrumb{
+    max-width:1100px; margin:0 auto;
+    padding:14px 20px 0;
+    font-size:13px; color:var(--text-light);
+  }
+  .breadcrumb a:hover{color:var(--red);}
+
+  /* Layout */
+  .page{
+    max-width:1100px; margin:0 auto;
+    padding:16px 20px 60px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:32px;
+    align-items:start;
+  }
+
+  /* Gallery */
+  .gallery{ margin-bottom:8px; }
+  .gallery-main{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--bg-gray);
+    border:1px solid var(--border);
+  }
+  .gallery-main img{ width:100%; height:100%; object-fit:cover; }
+  .gallery-thumbs{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:8px;
+    margin-top:8px;
+  }
+  .gallery-thumbs img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:6px;
+    cursor:pointer;
+    border:2px solid transparent;
+    opacity:0.75;
+    transition:opacity .15s ease, border-color .15s ease;
+  }
+  .gallery-thumbs img:hover{ opacity:1; }
+  .gallery-thumbs img.active{ opacity:1; border-color:var(--red); }
+
+  /* Title block */
+  .tour-title-block{ margin-top:22px; }
+  .tour-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+  .tag{
+    font-size:12px; font-weight:700; color:var(--red);
+    background:rgba(212,42,42,0.08);
+    padding:4px 10px; border-radius:4px;
+  }
+  h1.tour-title{ font-size:24px; font-weight:700; margin:0 0 10px; line-height:1.3; }
+  .tour-route{ font-size:14px; color:var(--text-light); margin-bottom:16px; line-height:1.6; }
+  .quick-info{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    border:1px solid var(--border); border-radius:8px;
+    padding:16px; background:var(--bg-gray);
+    margin-bottom:28px;
+  }
+  .quick-info div{ font-size:13px; }
+  .quick-info .label{ color:var(--text-light); margin-bottom:2px; }
+  .quick-info .val{ font-weight:700; }
+
+  /* Section headings */
+  .section-block{ margin-bottom:34px; }
+  .section-block h2{
+    font-size:18px; font-weight:700;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--red);
+    display:inline-block;
+    margin:0 0 18px;
+  }
+
+  /* Itinerary */
+  .day-item{
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .day-header{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 16px;
+    background:var(--bg-gray);
+    cursor:pointer;
+    user-select:none;
+  }
+  .day-number{
+    flex-shrink:0;
+    width:34px; height:34px; border-radius:50%;
+    background:var(--red); color:#fff;
+    font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .day-header-text{ flex:1; }
+  .day-header-text .day-label{ font-size:11px; color:var(--red); font-weight:700; text-transform:uppercase; }
+  .day-header-text .day-title{ font-size:14.5px; font-weight:600; }
+  .day-toggle{ font-size:18px; color:var(--text-light); transition:transform .2s ease; }
+  .day-item.open .day-toggle{ transform:rotate(45deg); }
+  .day-body{
+    display:none;
+    padding:18px 20px 20px 62px;
+    font-size:14px; line-height:1.75;
+    color:var(--text-light);
+  }
+  .day-item.open .day-body{ display:block; }
+  .day-body strong{ color:var(--text); }
+  .day-body p{ margin:0 0 12px; }
+  .day-body p:last-child{ margin-bottom:0; }
+
+  /* Included / excluded */
+  .include-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  }
+  .include-col h3{ font-size:14px; margin:0 0 10px; }
+  .include-col.yes h3{ color:var(--red); }
+  .include-col ul{ margin:0; padding-left:18px; font-size:13.5px; color:var(--text-light); line-height:1.9; }
+  .include-col ul li::marker{ color:var(--red); }
+
+  /* Policy list */
+  .policy-list{ font-size:13.5px; color:var(--text-light); line-height:1.9; }
+  .policy-list h3{ font-size:14px; color:var(--text); margin:16px 0 6px; }
+  .policy-list h3:first-child{ margin-top:0; }
+  .policy-list ul{ margin:0 0 4px; padding-left:18px; }
+
+  /* Sidebar booking card */
+  .booking-card{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    position:sticky; top:80px;
+  }
+  .booking-price-label{ font-size:12px; color:var(--text-light); }
+  .booking-price{ font-size:26px; font-weight:700; color:var(--red); margin:2px 0 14px; }
+  .booking-price small{ font-size:13px; font-weight:500; color:var(--text-light); }
+  .booking-info{ font-size:13px; color:var(--text-light); line-height:1.9; margin-bottom:16px; }
+  .booking-info b{ color:var(--text); }
+  .booking-actions{ display:flex; flex-direction:column; gap:10px; }
+  .btn-red{
+    background:var(--red); color:#fff;
+    padding:12px; border-radius:6px; text-align:center;
+    font-weight:600; font-size:14px; border:none; cursor:pointer;
+  }
+  .btn-red:hover{ background:var(--red-dark); }
+  .btn-outline-red{
+    background:#fff; color:var(--red); border:1px solid var(--red);
+    padding:12px; border-radius:6px; text-align:center;
+    font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .btn-outline-red:hover{ background:rgba(212,42,42,0.06); }
+
+  /* Footer */
+  footer{
+    background:#fff; border-top:1px solid var(--border); padding:28px 20px;
+  }
+  .footer-inner{
+    max-width:1100px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    font-size:13px; color:var(--text-light);
+  }
+  .footer-inner strong{ color:var(--text); }
+
+  @media (max-width:860px){
+    .page{ grid-template-columns:1fr; }
+    .booking-card{ position:static; }
+    .quick-info{ grid-template-columns:1fr 1fr; }
+    .include-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:640px){
+    nav.main-nav{ display:none; }
+    .gallery-thumbs{ grid-template-columns:repeat(4,1fr); }
+    .day-body{ padding-left:20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">dulich<span>mientay</span></div>
+    <nav class="main-nav">
+      <a href="../index.html">Tour du lịch</a>
+      <a href="../lien-he.html">Liên hệ</a>
+    </nav>
+    <a href="tel:0934444738" class="header-hotline">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" fill="white"/></svg>
+      </span>
+      093.4444.738 (Hoàng Việt)
+    </a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Tour du lịch</a> / Lục tỉnh miền Tây 4 ngày 3 đêm
+</div>
+
+<div class="page">
+
+  <!-- CỘT TRÁI: nội dung chi tiết -->
+  <div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <img id="mainImage" src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1000&h=600&fit=crop" alt="Tour lục tỉnh miền Tây">
+      </div>
+      <div class="gallery-thumbs" id="thumbs">
+        <img class="active" data-full="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1000&h=600&fit=crop" src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=200&h=200&fit=crop" alt="Ảnh 1">
+        <img data-full="https://images.unsplash.com/photo-1528127269322-539801943592?w=1000&h=600&fit=crop" src="https://images.unsplash.com/photo-1528127269322-539801943592?w=200&h=200&fit=crop" alt="Ảnh 2">
+        <img data-full="https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=1000&h=600&fit=crop" src="https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=200&h=200&fit=crop" alt="Ảnh 3">
+        <img data-full="https://images.unsplash.com/photo-1509233725247-49e657c54213?w=1000&h=600&fit=crop" src="https://images.unsplash.com/photo-1509233725247-49e657c54213?w=200&h=200&fit=crop" alt="Ảnh 4">
+        <img data-full="https://images.unsplash.com/photo-1602473812169-d0761b0c4e39?w=1000&h=600&fit=crop" src="https://images.unsplash.com/photo-1602473812169-d0761b0c4e39?w=200&h=200&fit=crop" alt="Ảnh 5">
+      </div>
+    </div>
+
+    <!-- Tiêu đề -->
+    <div class="tour-title-block">
+      <div class="tour-tags">
+        <span class="tag">4 ngày 3 đêm</span>
+        <span class="tag">Ghép đoàn</span>
+      </div>
+      <h1 class="tour-title">Chương Trình Tour Lục Tỉnh Miền Tây 4 Ngày 3 Đêm</h1>
+      <div class="tour-route">Mỹ Tho – Bến Tre – Châu Đốc – Chùa Bà – Rừng Tràm Trà Sư – Cần Thơ – Cà Mau – Bạc Liêu – Sóc Trăng</div>
+
+      <div class="quick-info">
+        <div><div class="label">Khởi hành</div><div class="val">Thứ 2 và Thứ 5</div></div>
+        <div><div class="label">Giờ khởi hành</div><div class="val">7:00 sáng</div></div>
+        <div><div class="label">Điểm khởi hành</div><div class="val">TP. Hồ Chí Minh</div></div>
+      </div>
+    </div>
+
+    <!-- Lịch trình -->
+    <div class="section-block">
+      <h2>Lịch trình chi tiết</h2>
+
+      <div class="day-item open">
+        <div class="day-header">
+          <div class="day-number">1</div>
+          <div class="day-header-text">
+            <div class="day-label">Ngày 1 · Ăn trưa, tối</div>
+            <div class="day-title">TP.HCM – Mỹ Tho – Bến Tre – Châu Đốc</div>
+          </div>
+          <div class="day-toggle">+</div>
+        </div>
+        <div class="day-body">
+          <p><strong>Buổi sáng:</strong> Đón khách tại điểm hẹn TP.HCM, khởi hành đi Mỹ Tho - Bến Tre. Tham quan chùa Vĩnh Tràng, ngôi chùa cổ có kiến trúc độc đáo bậc nhất miền Tây. Xuống tàu tại bến Chương Dương, du ngoạn sông Tiền ngắm bốn cù lao Long - Lân - Quy - Phụng và cầu Rạch Miễu.</p>
+          <p>Tham quan cơ sở làm kẹo dừa, tự tay trải nghiệm các công đoạn. Sang cù lao Thới Sơn thưởng thức trà mật ong hoa nhãn, dạo miệt vườn bằng xe ngựa, chèo xuồng ba lá len lỏi trong rạch nhỏ, thưởng thức trái cây và đờn ca tài tử.</p>
+          <p><strong>Buổi trưa:</strong> Di chuyển đến khu du lịch sinh thái Cồn Phụng, dùng cơm trưa tại nhà hàng trên cồn, tự do tham quan di tích đạo Dừa và trải nghiệm cầu khỉ.</p>
+          <p><strong>Buổi chiều:</strong> Trở lại tàu về bến 30/4, khởi hành đi Châu Đốc. Nhận phòng khách sạn, dùng cơm tối tại nhà hàng.</p>
+        </div>
+      </div>
+
+      <div class="day-item">
+        <div class="day-header">
+          <div class="day-number">2</div>
+          <div class="day-header-text">
+            <div class="day-label">Ngày 2 · Ăn sáng, trưa, tối</div>
+            <div class="day-title">Châu Đốc – Núi Sam – Trà Sư – Cần Thơ</div>
+          </div>
+          <div class="day-toggle">+</div>
+        </div>
+        <div class="day-body">
+          <p><strong>Buổi sáng:</strong> Ăn sáng tại khách sạn. Vào núi Sam viếng miếu Bà Chúa Xứ, lăng Thoại Ngọc Hầu, chùa Tây An Cổ Tự. Tiếp tục đến rừng tràm Trà Sư, check-in bến nước, đi tắc ráng len lỏi vào rừng tràm ngập nước — được mệnh danh "con đường nước" của vùng Tây sông Hậu. Dùng cơm trưa tại nhà hàng dưới tán rừng tràm.</p>
+          <p><strong>Buổi chiều:</strong> Khởi hành đi Cần Thơ. Nhận phòng, dùng cơm tối trên du thuyền Cần Thơ. Sau đó tự do khám phá chợ đêm Ninh Kiều, phố ẩm thực, check-in cầu tình yêu Ninh Kiều.</p>
+        </div>
+      </div>
+
+      <div class="day-item">
+        <div class="day-header">
+          <div class="day-number">3</div>
+          <div class="day-header-text">
+            <div class="day-label">Ngày 3 · Ăn sáng, trưa, tối</div>
+            <div class="day-title">Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau</div>
+          </div>
+          <div class="day-toggle">+</div>
+        </div>
+        <div class="day-body">
+          <p><strong>Buổi sáng:</strong> Ăn sáng, trả phòng. Tham quan chợ nổi Cái Răng — một trong những chợ nổi sầm uất và nổi tiếng nhất Cần Thơ. Khởi hành đi Cà Mau, dùng cơm trưa với đặc sản địa phương.</p>
+          <p><strong>Buổi chiều:</strong> Khám phá Đất Mũi Cà Mau — điểm cực Nam của tổ quốc. Chụp ảnh tại mốc tọa độ Quốc gia GPS 0001, panô biểu tượng Mũi Cà Mau, cột mốc đường Hồ Chí Minh, cột cờ Đất Mũi, bảo tàng Đất Mũi, tượng mẹ Âu Cơ. Tham quan hệ sinh thái rừng ngập mặn tại Vườn Quốc gia Mũi Cà Mau. Dùng cơm tối, nhận phòng nghỉ ngơi.</p>
+        </div>
+      </div>
+
+      <div class="day-item">
+        <div class="day-header">
+          <div class="day-number">4</div>
+          <div class="day-header-text">
+            <div class="day-label">Ngày 4 · Ăn sáng, trưa</div>
+            <div class="day-title">Cà Mau – Bạc Liêu – Sài Gòn</div>
+          </div>
+          <div class="day-toggle">+</div>
+        </div>
+        <div class="day-body">
+          <p><strong>Buổi sáng:</strong> Ăn sáng, trả phòng, khởi hành về Bạc Liêu. Tham quan khu tưởng niệm cố nhạc sĩ Cao Văn Lầu, quảng trường Hùng Vương với Nhà hát Ba Nón Lá và cây đàn kìm "Quân Tử Cầm" lớn nhất Việt Nam. Ghé nhà Công tử Bạc Liêu, nhà thờ Tắc Sậy viếng mộ Cha Trương Bửu Diệp, chùa Somrong (Sóc Trăng).</p>
+          <p><strong>Buổi trưa - chiều:</strong> Dùng cơm trưa tại nhà hàng, nghỉ ngơi rồi lên xe về lại TP.HCM, kết thúc hành trình.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bao gồm / không bao gồm -->
+    <div class="section-block">
+      <h2>Chi phí tour</h2>
+      <div class="include-grid">
+        <div class="include-col yes">
+          <h3>✔ Bao gồm</h3>
+          <ul>
+            <li>Xe du lịch máy lạnh đưa đón theo chương trình</li>
+            <li>Hướng dẫn viên chuyên nghiệp suốt tuyến</li>
+            <li>3 bữa sáng, 4 bữa trưa, 3 bữa tối (1 bữa tối trên du thuyền Cần Thơ)</li>
+            <li>Khách sạn: 1 đêm Châu Đốc (2 sao), 1 đêm Cần Thơ (3 sao), 1 đêm Cà Mau (3 sao) — tiêu chuẩn 2-3 khách/phòng</li>
+            <li>Vé tham quan, tàu, đò chèo, xe ngựa theo chương trình</li>
+            <li>Nước suối 1 chai/người/ngày, nón du lịch</li>
+            <li>Bảo hiểm du lịch 120.000.000đ/vụ</li>
+            <li>Tặng áo cờ đỏ sao vàng + nón du lịch</li>
+          </ul>
+        </div>
+        <div class="include-col">
+          <h3>✘ Không bao gồm</h3>
+          <ul>
+            <li>Chi phí tham quan ngoài chương trình (cáp treo núi Sam...)</li>
+            <li>Bữa sáng ngày đầu khởi hành</li>
+            <li>Thuế VAT 8%</li>
+            <li>Phụ thu phòng đơn: 1.050.000đ/khách</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lưu ý -->
+    <div class="section-block">
+      <h2>Chính sách & lưu ý</h2>
+      <div class="policy-list">
+        <h3>Trẻ em</h3>
+        <ul>
+          <li>Dưới 4 tuổi: miễn phí (ngồi và ngủ chung với ba mẹ, không suất ăn riêng)</li>
+          <li>4 - 9 tuổi: 75% giá vé người lớn</li>
+          <li>Từ 10 tuổi: tính giá người lớn</li>
+          <li>2 người lớn chỉ kèm 1 trẻ em miễn phí, bé thứ 2 trở lên tính giá người lớn</li>
+        </ul>
+
+        <h3>Quy định hủy tour</h3>
+        <ul>
+          <li>Hủy không báo trước hoặc đến trễ giờ khởi hành: phạt 100% phí tour</li>
+          <li>Hủy trước 3-5 ngày khởi hành: phạt 75% phí tour</li>
+          <li>Hủy trước 2 ngày khởi hành: phạt 100% phí tour</li>
+        </ul>
+
+        <h3>Một số lưu ý khác</h3>
+        <ul>
+          <li>Quý khách vui lòng đến đúng giờ hẹn; nếu đến trễ vui lòng tự túc di chuyển đến điểm tiếp theo</li>
+          <li>Không tự ý tách đoàn khi tham quan; mọi thay đổi cần báo trước với hướng dẫn viên</li>
+          <li>Lịch trình có thể thay đổi thứ tự tùy thời tiết và sức khỏe đoàn, sẽ thông báo vào cuối mỗi ngày</li>
+          <li>Nên mang giày thể thao hoặc dép mềm, đế thấp để thuận tiện di chuyển</li>
+          <li>Khách có bệnh nền (huyết áp, tim mạch...) nên mang theo thuốc đặc trị riêng</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CỘT PHẢI: đặt tour -->
+  <div class="booking-card">
+    <div class="booking-price-label">Giá chỉ từ</div>
+    <div class="booking-price">4.380.000 đ <small>/ khách</small></div>
+    <div class="booking-info">
+      Khởi hành: <b>Thứ 2 và Thứ 5 hàng tuần</b><br>
+      Thời gian: <b>4 ngày 3 đêm</b><br>
+      Điểm đón: <b>TP. Hồ Chí Minh</b><br>
+      Hình thức: <b>Ghép đoàn</b>
+    </div>
+    <div class="booking-actions">
+      <a href="tel:0934444738" class="btn-red">Gọi 093.4444.738</a>
+      <a href="https://zalo.me/8493.4444.738" target="_blank" rel="noopener" class="btn-outline-red">Chat Zalo</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>dulichmientay</strong></div>
+    <div>Hotline: 093.4444.738 (Hoàng Việt) · Email: hello@dulichmientay.vn</div>
+    <div>© 2026 dulichmientay</div>
+  </div>
+</footer>
+
+<script>
+  // Gallery: đổi ảnh chính khi bấm thumbnail
+  const mainImage = document.getElementById('mainImage');
+  const thumbs = document.querySelectorAll('#thumbs img');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.dataset.full;
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
+  });
+
+  // Lịch trình: mở/đóng từng ngày (accordion)
+  document.querySelectorAll('.day-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.closest('.day-item').classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>

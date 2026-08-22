@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dulichmientay - Tour du lịch miền Tây</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D42A2A;
+    --red-dark:#B31E1E;
+    --text:#222222;
+    --text-light:#666666;
+    --border:#E5E5E5;
+    --bg-gray:#F7F7F7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', Arial, sans-serif;
+    color:var(--text);
+    background:#FFFFFF;
+  }
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%;}
+
+  /* Header */
+  header{
+    background:#FFFFFF;
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; z-index:100;
+  }
+  .header-inner{
+    max-width:1100px; margin:0 auto;
+    padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-size:22px; font-weight:700;
+    color:var(--text);
+  }
+  .logo span{color:var(--red);}
+  nav.main-nav{
+    display:flex; gap:24px;
+    font-size:14px; font-weight:500;
+  }
+  nav.main-nav a:hover{color:var(--red);}
+  .header-hotline{
+    display:flex; align-items:center; gap:8px;
+    color:var(--red); font-weight:700; font-size:15px;
+  }
+  .header-hotline .icon{
+    width:32px; height:32px; border-radius:50%;
+    background:var(--red); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .header-hotline .icon svg{width:16px; height:16px;}
+
+  /* Banner */
+  .banner{
+    background:var(--bg-gray);
+    padding:36px 20px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+  }
+  .banner h1{
+    font-size:26px; margin:0 0 8px;
+    font-weight:700;
+  }
+  .banner p{
+    margin:0; color:var(--text-light); font-size:15px;
+  }
+
+  /* Filters */
+  .filters-wrap{
+    max-width:1100px; margin:0 auto;
+    padding:20px 20px 0;
+  }
+  .filters{
+    display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .filter-btn{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:9px 16px;
+    border-radius:6px;
+    font-size:14px; font-weight:500;
+    cursor:pointer;
+    color:var(--text);
+  }
+  .filter-btn:hover{border-color:var(--red); color:var(--red);}
+  .filter-btn.active{
+    background:var(--red); border-color:var(--red); color:#fff;
+  }
+
+  /* Main / grid */
+  main{
+    max-width:1100px; margin:0 auto;
+    padding:24px 20px 50px;
+  }
+  .section-title{
+    font-size:18px; font-weight:700;
+    margin:0 0 16px;
+    padding-bottom:10px;
+    border-bottom:2px solid var(--red);
+    display:inline-block;
+  }
+  .tour-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+    gap:18px;
+  }
+
+  .tour-card{
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transition:box-shadow .15s ease;
+  }
+  .tour-card:hover{
+    box-shadow:0 4px 14px rgba(0,0,0,0.08);
+  }
+  .tour-image{
+    width:100%;
+    height:160px;
+    display:block;
+    object-fit:cover;
+    background:var(--bg-gray);
+  }
+  .tour-body{
+    padding:16px;
+    display:flex; flex-direction:column; gap:8px; flex:1;
+  }
+  .tour-duration{
+    display:inline-block;
+    font-size:12px; font-weight:700;
+    color:var(--red);
+    background:rgba(212,42,42,0.08);
+    padding:3px 9px;
+    border-radius:4px;
+    width:fit-content;
+  }
+  .tour-name{
+    font-size:16px; font-weight:600;
+    line-height:1.35;
+    color:var(--text);
+    min-height:44px;
+  }
+  .tour-info{
+    font-size:13px; color:var(--text-light);
+    line-height:1.6;
+  }
+  .tour-info b{color:var(--text); font-weight:600;}
+  .tour-note{
+    font-size:12px; color:var(--text-light); font-style:italic;
+  }
+  .tour-footer{
+    margin-top:auto;
+    padding-top:12px;
+    border-top:1px dashed var(--border);
+    display:flex; flex-direction:column;
+    gap:10px;
+  }
+  .tour-price-label{
+    font-size:11px; color:var(--text-light);
+  }
+  .tour-price{
+    font-size:18px; font-weight:700; color:var(--red);
+  }
+  .tour-actions{
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .btn-detail{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+    border:1px solid var(--red);
+    background:#fff;
+    color:var(--red);
+    font-size:13px; font-weight:600;
+    padding:9px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    width:100%;
+  }
+  .btn-detail:hover{background:rgba(212,42,42,0.06);}
+  .btn-book{
+    border:none;
+    background:var(--red);
+    color:#fff;
+    font-size:13px; font-weight:600;
+    padding:9px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    width:100%;
+  }
+  .btn-book:hover{background:var(--red-dark);}
+
+  /* Contact strip */
+  .contact-strip{
+    background:var(--bg-gray);
+    border-top:1px solid var(--border);
+    padding:30px 20px;
+  }
+  .contact-inner{
+    max-width:1100px; margin:0 auto;
+    display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center;
+  }
+  .contact-inner h2{
+    font-size:18px; margin:0 0 6px;
+  }
+  .contact-inner p{
+    margin:0; color:var(--text-light); font-size:14px;
+  }
+  .contact-cta{
+    display:flex; gap:12px; flex-wrap:wrap;
+  }
+  .btn-red{
+    background:var(--red); color:#fff;
+    padding:12px 22px; border-radius:6px;
+    font-weight:600; font-size:14px; border:none; cursor:pointer;
+  }
+  .btn-red:hover{background:var(--red-dark);}
+  .btn-outline-red{
+    background:#fff; color:var(--red);
+    border:1px solid var(--red);
+    padding:12px 22px; border-radius:6px;
+    font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .btn-outline-red:hover{background:rgba(212,42,42,0.06);}
+
+  /* Footer */
+  footer{
+    background:#fff;
+    border-top:1px solid var(--border);
+    padding:28px 20px;
+  }
+  .footer-inner{
+    max-width:1100px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    font-size:13px; color:var(--text-light);
+  }
+  .footer-inner strong{color:var(--text);}
+
+  @media (max-width:640px){
+    nav.main-nav{display:none;}
+    .tour-name{min-height:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">dulich<span>mientay</span></div>
+    <nav class="main-nav">
+      <a href="#tours">Tour du lịch</a>
+      <a href="./lien-he/">Liên hệ</a>
+    </nav>
+    <a href="tel:0934444738" class="header-hotline">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" fill="white"/></svg>
+      </span>
+      093.4444.738 (Hoàng Việt)
+    </a>
+  </div>
+</header>
+
+<section class="banner">
+  <h1>Tour du lịch miền Tây - Khởi hành từ TP. Hồ Chí Minh</h1>
+  <p>Mỹ Tho - Bến Tre - Cần Thơ - Trà Vinh - Châu Đốc - Cà Mau - Bạc Liêu - Sóc Trăng</p>
+</section>
+
+<div class="filters-wrap">
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">Tất cả</button>
+    <button class="filter-btn" data-filter="1 ngày">1 ngày</button>
+    <button class="filter-btn" data-filter="2 ngày 1 đêm">2 ngày 1 đêm</button>
+    <button class="filter-btn" data-filter="3 ngày 2 đêm">3 ngày 2 đêm</button>
+    <button class="filter-btn" data-filter="4 ngày 3 đêm">4 ngày 3 đêm</button>
+  </div>
+</div>
+
+<main id="tours">
+  <h2 class="section-title">Danh sách tour</h2>
+  <div class="tour-grid" id="tourGrid"></div>
+</main>
+
+<section class="contact-strip" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2>Cần tư vấn chọn tour phù hợp?</h2>
+      <p>Gọi ngay hotline hoặc để lại thông tin, nhân viên sẽ liên hệ trong 15 phút.</p>
+    </div>
+    <div class="contact-cta">
+      <a href="tel:093.4444.738" class="btn-red">Gọi 093.4444.738</a>
+      <a href="https://zalo.me/8493.4444.738" target="_blank" rel="noopener" class="btn-red">Chat Zalo</a>
+      <a href="mailto:hello@dulichmientay.vn" class="btn-outline-red">Gửi email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>dulichmientay</strong></div>
+    <div>Hotline: 093.4444.738 (Hoàng Việt) · Email: ngohoangviet0710@gmail.com</div>
+    <div>© 2026 dulichmientay</div>
+  </div>
+</footer>
+
+<script src="current-tour/tourList.js"></script>
+<script>
+  const grid = document.getElementById('tourGrid');
+  const filterBar = document.getElementById('filters');
+
+  function formatPrice(v){
+    return v.toLocaleString('vi-VN') + ' đ';
+  }
+
+  function renderTours(filter){
+    grid.innerHTML = '';
+    const items = filter === 'all' ? tourList : tourList.filter(t => t.duration === filter);
+
+    items.forEach(tour => {
+      const card = document.createElement('div');
+      card.className = 'tour-card';
+      card.innerHTML = `
+        <img class="tour-image" src="./image/thumb/${tour.image}" alt="${tour.name}" loading="lazy">
+        <div class="tour-body">
+          <span class="tour-duration">${tour.duration}</span>
+          <div class="tour-name">${tour.name}</div>
+          <div class="tour-info">
+            Điểm khởi hành: <b>${tour.departurePoint}</b><br>
+            Lịch khởi hành: <b>${tour.departureSchedule}</b><br>
+            Hình thức: <b>${tour.type}</b>
+          </div>
+          ${tour.note ? `<div class="tour-note">${tour.note}</div>` : ''}
+          <div class="tour-footer">
+            <div>
+              <div class="tour-price-label">Giá chỉ từ</div>
+              <div class="tour-price">${formatPrice(tour.price)}</div>
+            </div>
+            <div class="tour-actions">
+              <a href="./chi-tiet-tour/?name=${tour.name.toLowerCase()}" class="btn-detail">Chi tiết</a>
+              <button class="btn-book">Liên hệ</button>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTours(btn.dataset.filter);
+  });
+
+  renderTours('all');
+</script>
+
+</body>
+</html>
