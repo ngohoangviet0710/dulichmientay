@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Miền Tây 2 ngày 1 đêm - Mỹ Tho - Bến Tre - Cần Thơ - dulichmientay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #D42A2A;
+            --red-dark: #B31E1E;
+            --text: #222222;
+            --text-light: #666666;
+            --border: #E5E5E5;
+            --bg-gray: #F7F7F7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Be Vietnam Pro', Arial, sans-serif;
+            color: var(--text);
+            background: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav.main-nav a:hover {
+            color: var(--red);
+        }
+
+        .header-hotline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .header-hotline .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-hotline .icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--red);
+        }
+
+        /* Layout */
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px 60px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Gallery */
+        .gallery {
+            margin-bottom: 8px;
+        }
+
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--bg-gray);
+            border: 1px solid var(--border);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .gallery-thumbs img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.75;
+            transition: opacity .15s ease, border-color .15s ease;
+        }
+
+        .gallery-thumbs img:hover {
+            opacity: 1;
+        }
+
+        .gallery-thumbs img.active {
+            opacity: 1;
+            border-color: var(--red);
+        }
+
+        /* Title block */
+        .tour-title-block {
+            margin-top: 22px;
+        }
+
+        .tour-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--red);
+            background: rgba(212, 42, 42, 0.08);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        h1.tour-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+
+        .tour-route {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            background: var(--bg-gray);
+            margin-bottom: 28px;
+        }
+
+        .quick-info div {
+            font-size: 13px;
+        }
+
+        .quick-info .label {
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .quick-info .val {
+            font-weight: 700;
+        }
+
+        /* Section headings */
+        .section-block {
+            margin-bottom: 34px;
+        }
+
+        .section-block h2 {
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--red);
+            display: inline-block;
+            margin: 0 0 18px;
+        }
+
+        /* Itinerary */
+        .day-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-gray);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .day-number {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day-header-text {
+            flex: 1;
+        }
+
+        .day-header-text .day-label {
+            font-size: 11px;
+            color: var(--red);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .day-header-text .day-title {
+            font-size: 14.5px;
+            font-weight: 600;
+        }
+
+        .day-toggle {
+            font-size: 18px;
+            color: var(--text-light);
+            transition: transform .2s ease;
+        }
+
+        .day-item.open .day-toggle {
+            transform: rotate(45deg);
+        }
+
+        .day-body {
+            display: none;
+            padding: 18px 20px 20px 62px;
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--text-light);
+        }
+
+        .day-item.open .day-body {
+            display: block;
+        }
+
+        .day-body strong {
+            color: var(--text);
+        }
+
+        .day-body p {
+            margin: 0 0 12px;
+        }
+
+        .day-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-body ul {
+            margin: 0 0 12px;
+            padding-left: 18px;
+        }
+
+        .day-body ul li {
+            margin-bottom: 6px;
+        }
+
+        .day-body ul li::marker {
+            color: var(--red);
+        }
+
+        /* Menu block */
+        .menu-block {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .menu-block-header {
+            padding: 12px 16px;
+            background: var(--bg-gray);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .menu-block ul {
+            margin: 0;
+            padding: 14px 16px 14px 32px;
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .menu-block ul li::marker {
+            color: var(--red);
+        }
+
+        /* Included / excluded */
+        .include-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .include-col h3 {
+            font-size: 14px;
+            margin: 0 0 10px;
+        }
+
+        .include-col.yes h3 {
+            color: var(--red);
+        }
+
+        .include-col ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .include-col ul li::marker {
+            color: var(--red);
+        }
+
+        .include-col ul li {
+            margin-bottom: 4px;
+        }
+
+        .include-col .sub-note {
+            font-size: 12.5px;
+            color: var(--text-light);
+            margin: 2px 0 8px 18px;
+            font-style: italic;
+        }
+
+        /* Policy list */
+        .policy-list {
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .policy-list h3 {
+            font-size: 14px;
+            color: var(--text);
+            margin: 16px 0 6px;
+        }
+
+        .policy-list h3:first-child {
+            margin-top: 0;
+        }
+
+        .policy-list ul {
+            margin: 0 0 4px;
+            padding-left: 18px;
+        }
+
+        .policy-list ul li::marker {
+            color: var(--red);
+        }
+
+        /* Sidebar booking card */
+        .booking-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            position: sticky;
+            top: 80px;
+        }
+
+        .booking-price-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .booking-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--red);
+            margin: 2px 0 14px;
+        }
+
+        .booking-price small {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .booking-info {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .booking-info b {
+            color: var(--text);
+        }
+
+        .booking-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover {
+            background: var(--red-dark);
+        }
+
+        .btn-outline-red {
+            background: #fff;
+            color: var(--red);
+            border: 1px solid var(--red);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-outline-red:hover {
+            background: rgba(212, 42, 42, 0.06);
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            border-top: 1px solid var(--border);
+            padding: 28px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-inner strong {
+            color: var(--text);
+        }
+
+        @media (max-width:860px) {
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                position: static;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .include-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:640px) {
+            nav.main-nav {
+                display: none;
+            }
+
+            .gallery-thumbs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .day-body {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">dulich<span>mientay</span></div>
+            <nav class="main-nav">
+                <a href="../index.html">Tour du lịch</a>
+                <a href="../lien-he.html">Liên hệ</a>
+            </nav>
+            <a href="tel:0934444738" class="header-hotline">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"
+                            fill="white" />
+                    </svg>
+                </span>
+                093.4444.738 (Hoàng Việt)
+            </a>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="../index.html">Tour du lịch</a> / Miền Tây 2 ngày 1 đêm - Mỹ Tho - Bến Tre - Cần Thơ
+    </div>
+
+    <div class="page">
+
+        <!-- CỘT TRÁI: nội dung chi tiết -->
+        <div>
+
+            <!-- Gallery -->
+            <div class="gallery">
+                <div class="gallery-main">
+                    <img id="mainImage" src="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image1.jpg"
+                        alt="Tour Miền Tây 2 ngày 1 đêm Mỹ Tho Bến Tre Cần Thơ">
+                </div>
+                <div class="gallery-thumbs" id="thumbs">
+                    <img class="active" data-full="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image1.jpg"
+                        src="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image1.jpg" alt="Ảnh 1">
+                    <img data-full="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image2.jpg"
+                        src="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image2.jpg" alt="Ảnh 2">
+                    <img data-full="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image3.jpg"
+                        src="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image3.jpg" alt="Ảnh 3">
+                    <img data-full="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image4.jpg"
+                        src="/image/2n-1d-sg-my-tho-ben-tre-can-tho/image4.jpg" alt="Ảnh 4">
+                </div>
+            </div>
+
+            <!-- Tiêu đề -->
+            <div class="tour-title-block">
+                <div class="tour-tags">
+                    <span class="tag">2 ngày 1 đêm</span>
+                    <span class="tag">Ghép đoàn</span>
+                </div>
+                <h1 class="tour-title">Tour Miền Tây 2 Ngày 1 Đêm: Mỹ Tho – Bến Tre – Cần Thơ</h1>
+                <div class="tour-route">TP. Hồ Chí Minh – Mỹ Tho – Bến Tre – Cồn Phụng – Cần Thơ – Chợ nổi Cái Răng –
+                    Thiền viện Trúc Lâm – Mỹ Khánh</div>
+
+                <div class="quick-info">
+                    <div>
+                        <div class="label">Khởi hành</div>
+                        <div class="val">Mỗi ngày</div>
+                    </div>
+                    <div>
+                        <div class="label">Giờ khởi hành</div>
+                        <div class="val">7:00 sáng</div>
+                    </div>
+                    <div>
+                        <div class="label">Điểm khởi hành</div>
+                        <div class="val">202 Lê Lai, Bến Thành, Q1, TP.HCM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lịch trình -->
+            <div class="section-block">
+                <h2>Lịch trình chi tiết</h2>
+
+                <div class="day-item open">
+                    <div class="day-header">
+                        <div class="day-number">1</div>
+                        <div class="day-header-text">
+                            <div class="day-label">Ngày 1 · 7:00 sáng</div>
+                            <div class="day-title">TP. Hồ Chí Minh – Mỹ Tho – Bến Tre</div>
+                        </div>
+                        <div class="day-toggle">+</div>
+                    </div>
+                    <div class="day-body">
+                        <p><strong>Buổi sáng:</strong> Đón khách tại điểm hẹn TP. Hồ Chí Minh. Khởi hành đi Mỹ Tho - Bến
+                            Tre. Dừng chân tại trạm dừng chân Mekong Rest Stop Tiền Giang (chi phí ăn sáng tự túc).</p>
+                        <p>Đến bến tàu Mỹ Tho:</p>
+                        <ul>
+                            <li>Xuống tàu và du ngoạn trên sông Tiền, ngắm cảnh quan 4 cù lao tứ linh (Long – Lân – Quy
+                                – Phụng) và chiêm ngưỡng cầu Rạch Miễu, công trình đầu tiên do kỹ sư Việt Nam xây dựng
+                                bắt ngang qua sông Tiền.</li>
+                            <li>Tham quan trại nuôi ong lấy mật, thưởng thức đặc sản trà mật ong hoa nhãn thơm ngon.
+                            </li>
+                            <li>Tham quan cơ sở chế biến kẹo dừa, tìm hiểu quy trình làm kẹo truyền thống của người dân
+                                miền Tây.</li>
+                            <li>Thưởng thức các loại trái cây theo mùa và nghe đờn ca tài tử dân dã miệt vườn.</li>
+                            <li>Trải nghiệm ngồi xe ngựa trên đường làng và chèo xuồng ba lá len lỏi trong con rạch nhỏ
+                                dưới những rặng dừa nước xanh mát.</li>
+                        </ul>
+                        <p><strong>Buổi trưa:</strong> Di chuyển về Khu du lịch sinh thái Cồn Phụng, tự do tham quan di
+                            tích ông Đạo Dừa. Dùng cơm trưa tại nhà hàng Cồn Phụng, tự do dạo quanh cù lao và tham quan
+                            cảnh trí nơi đây. Quý khách có thể trải nghiệm các hoạt động, trò chơi dân gian như đi cầu
+                            khỉ, câu cá sấu, cá bú bình sữa, cá massage… (chi phí tự túc).</p>
+                        <p><strong>Buổi chiều:</strong> Tham quan chùa Vĩnh Tràng, ngôi chùa có 3 tượng Phật lớn nhất
+                            tỉnh Tiền Giang, nổi bật với lối kiến trúc Á - Âu độc đáo. Khởi hành đến TP. Cần Thơ. Nhận
+                            phòng khách sạn, dùng cơm tối trên du thuyền, tự do tham quan Bến Ninh Kiều nhộn nhịp về đêm
+                            và tự túc di chuyển về khách sạn.</p>
+                    </div>
+                </div>
+
+                <div class="day-item">
+                    <div class="day-header">
+                        <div class="day-number">2</div>
+                        <div class="day-header-text">
+                            <div class="day-label">Ngày 2</div>
+                            <div class="day-title">Chợ nổi Cái Răng – Thiền viện Trúc Lâm – Mỹ Khánh</div>
+                        </div>
+                        <div class="day-toggle">+</div>
+                    </div>
+                    <div class="day-body">
+                        <p><strong>Buổi sáng:</strong> Dùng điểm tâm sáng theo tiêu chuẩn khách sạn. Di chuyển đến Bến
+                            Ninh Kiều và du ngoạn trên sông Cần Thơ để đến với chợ nổi Cái Răng. Tham quan chợ nổi Cái
+                            Răng - đặc trưng mua bán một thời của miền Tây sông nước và tìm hiểu cuộc sống nơi đây.</p>
+                        <p>Tham quan lò hủ tiếu trên sông - làng nghề truyền thống làm ra sợi hủ tiếu dai nổi tiếng khắp
+                            nơi. Tham quan Thiền viện Trúc Lâm Cần Thơ, thiền viện lớn nhất miền Tây với nhiều tổ hợp
+                            công trình kiến trúc độc đáo.</p>
+                        <p><strong>Buổi trưa:</strong> Đoàn đến Khu du lịch Mỹ Khánh, trải nghiệm các trò chơi dân gian
+                            như đua heo, đua chó… Tham quan vườn trái cây theo mùa (chi phí tự túc). Dùng cơm trưa tại
+                            nhà hàng Mỹ Khánh cùng các món ăn đậm chất miền Tây. Khởi hành về lại TP. Hồ Chí Minh, kết
+                            thúc hành trình Miền Tây 2 ngày 1 đêm: Mỹ Tho - Bến Tre - Cần Thơ.</p>
+                        <p><em>Thứ tự tham quan có thể sẽ thay đổi tùy vào tình hình thực tế nhưng vẫn đảm bảo đầy đủ
+                                các điểm tham quan trong lịch trình.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thực đơn -->
+            <div class="section-block">
+                <h2>Thực đơn các bữa ăn</h2>
+
+                <div class="menu-block">
+                    <div class="menu-block-header">Bữa trưa ngày 1 · Nhà hàng Cồn Phụng</div>
+                    <ul>
+                        <li>Cá tai tượng chiên xù (ăn kèm bún, rau sống, mắm me)</li>
+                        <li>Chả giò</li>
+                        <li>Trứng chiên</li>
+                        <li>Xôi phồng</li>
+                        <li>Thịt kho</li>
+                        <li>Gỏi củ hủ dừa tôm thịt</li>
+                        <li>Rau luộc kho quẹt</li>
+                        <li>Lẩu chua cá hú</li>
+                        <li>Cơm trắng, trà đá, trái cây, khăn lạnh</li>
+                    </ul>
+                </div>
+
+                <div class="menu-block">
+                    <div class="menu-block-header">Bữa tối ngày 1 · Du thuyền tại Cần Thơ</div>
+                    <ul>
+                        <li>Cá lóc hấp bầu</li>
+                        <li>Bò xào bông hẹ</li>
+                        <li>Sườn non ram mặn</li>
+                        <li>Cải ngọt xào tỏi</li>
+                        <li>Lẩu gà nấu chua</li>
+                        <li>Cơm trắng, trà đá, trái cây</li>
+                    </ul>
+                </div>
+
+                <div class="menu-block">
+                    <div class="menu-block-header">Bữa trưa ngày 2 · Nhà hàng Mỹ Khánh</div>
+                    <ul>
+                        <li>Lẩu nấm hải sản</li>
+                        <li>Cá lóc nướng trui + rau sống + bún + bánh tráng</li>
+                        <li>Trứng chiên thịt băm</li>
+                        <li>Bánh xèo Mỹ Khánh</li>
+                        <li>Gà kho gừng</li>
+                        <li>Cơm trắng, trà đá, trái cây</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bao gồm / không bao gồm -->
+            <div class="section-block">
+                <h2>Chi phí tour</h2>
+                <div class="include-grid">
+                    <div class="include-col yes">
+                        <h3>✔ Bao gồm</h3>
+                        <ul>
+                            <li>Xe du lịch đời mới máy lạnh: 16-29-33-45 chỗ (tùy số lượng khách)</li>
+                            <li>Hướng dẫn viên chuyên nghiệp suốt tuyến: song ngữ Anh - Việt</li>
+                            <li>Lưu trú khách sạn tại Cần Thơ: tiêu chuẩn 2 (hoặc 3) khách/phòng</li>
+                            <li>Khách sạn 3 sao: Phương Nga (hoặc tương đương) — phụ thu phòng đơn: 350.000đ/tour/khách
+                            </li>
+                            <li>Khách sạn 4 sao: Fortuneland (hoặc tương đương) — phụ thu phòng đơn: 500.000đ/tour/khách
+                            </li>
+                            <li>4 bữa ăn chính (3 bữa nhà hàng + 1 bữa sáng theo chuẩn khách sạn)</li>
+                            <li>Tàu tham quan trên sông (có trang bị áo phao)</li>
+                            <li>Combo tham quan ngày 1: trại nuôi ong, cơ sở kẹo dừa, trái cây, đờn ca tài tử, xe ngựa,
+                                xuồng ba lá, vé cổng KDL Cồn Phụng</li>
+                            <li>Combo tham quan ngày 2: chợ nổi Cái Răng, lò hủ tiếu, Thiền viện Trúc Lâm, vé vào cổng
+                                KDL Mỹ Khánh</li>
+                            <li>Bảo hiểm du lịch: 20.000.000đ/vụ</li>
+                            <li>Nước suối: 1 chai 350ml/người/ngày</li>
+                        </ul>
+                    </div>
+                    <div class="include-col">
+                        <h3>✘ Không bao gồm</h3>
+                        <ul>
+                            <li>Chi phí tham quan ngoài chương trình</li>
+                            <li>Chi phí ăn uống ngoài chương trình</li>
+                            <li>Thuế VAT 8%</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lưu ý -->
+            <div class="section-block">
+                <h2>Chính sách & lưu ý</h2>
+                <div class="policy-list">
+                    <h3>Trẻ em</h3>
+                    <ul>
+                        <li>Dưới 4 tuổi: miễn phí giá vé (ngồi trong lòng phụ huynh trên xe và bàn ăn, ngủ chung giường
+                            với phụ huynh)</li>
+                        <li>4 - 9 tuổi: tính 75% giá vé (ngủ cùng phụ huynh)</li>
+                        <li>Từ 10 tuổi trở lên: tính 100% giá vé</li>
+                        <li>2 người lớn chỉ được kèm 1 trẻ em, từ trẻ thứ 2 tính giá người lớn</li>
+                    </ul>
+
+                    <h3>Quy định hủy tour</h3>
+                    <ul>
+                        <li>Hủy không báo trước hoặc đến trễ giờ khởi hành: phạt 100% phí tour</li>
+                        <li>Hủy trước 3-5 ngày khởi hành: phạt 75% phí tour</li>
+                        <li>Hủy trước 2 ngày khởi hành: phạt 100% phí tour</li>
+                        <li>Bốn Phương sẽ không chịu trách nhiệm về mọi yêu cầu hủy tour khi chưa nhận và xác nhận lại
+                            từ quý khách; trong trường hợp này sẽ áp dụng phí hủy tour hoặc bỏ tour</li>
+                    </ul>
+
+                    <h3>Điểm đón trong tour</h3>
+                    <ul>
+                        <li>Nếu phát sinh thêm điểm đón/dừng ngoài khả năng phục vụ của công ty, chúng tôi sẽ không thể
+                            đáp ứng do lý do liên quan đến việc tuân thủ quy định pháp luật về giao thông</li>
+                    </ul>
+
+                    <h3>Lịch trình tham quan</h3>
+                    <ul>
+                        <li>Quý khách vui lòng tuân thủ giờ hẹn công ty đã thông báo; nếu đi trễ hơn giờ khởi hành, quý
+                            khách vui lòng tự túc phương tiện đón xe tại điểm tiếp theo</li>
+                        <li>Đoàn đi tham quan theo lịch trình, quý khách vui lòng hạn chế yêu cầu dừng đỗ cá nhân (trừ
+                            trường hợp bất khả kháng) để đảm bảo lịch trình đúng giờ, đầy đủ</li>
+                        <li>Không tự ý tách đoàn; mọi thay đổi cần thông báo đến công ty hoặc hướng dẫn viên trước</li>
+                        <li>Chương trình có thể thay đổi thứ tự, lịch trình để phù hợp thời tiết và sức khỏe cả đoàn, sẽ
+                            được thông báo vào cuối mỗi ngày</li>
+                    </ul>
+
+                    <h3>Nhà hàng & lưu trú</h3>
+                    <ul>
+                        <li>Thực đơn nhà hàng do người bản địa chế biến, có thể không hợp khẩu vị nhưng đảm bảo an toàn,
+                            hợp vệ sinh và mang đậm phong cách đặc sản địa phương</li>
+                        <li>Khi nhận phòng khách sạn, quý khách nên kiểm tra vật dụng trong phòng, báo lại lễ tân ngay
+                            nếu thiếu để tránh bị phạt phí khi trả phòng</li>
+                        <li>Nếu sử dụng đồ ăn/thức uống trong minibar hoặc gọi điện thoại từ khách sạn, quý khách tự
+                            thanh toán chi phí phát sinh khi trả phòng</li>
+                    </ul>
+
+                    <h3>Một số lưu ý khác</h3>
+                    <ul>
+                        <li>Khách có bệnh nền (huyết áp, tim mạch...) nên mang theo thuốc đặc trị riêng, cùng các loại
+                            thuốc thông thường như cảm cúm, nhức đầu, say tàu xe</li>
+                        <li>Nên mang giày thể thao hoặc dép mềm, đế thấp để thuận tiện di chuyển</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CỘT PHẢI: đặt tour -->
+        <div class="booking-card">
+            <div class="booking-price-label">Giá</div>
+            <div class="booking-price">Liên hệ <small>/ khách</small></div>
+            <div class="booking-info">
+                Khởi hành: <b>Mỗi ngày, 7:00 sáng</b><br>
+                Thời gian: <b>2 ngày 1 đêm</b><br>
+                Điểm đón: <b>202 Lê Lai, Bến Thành, Q1, TP.HCM</b><br>
+                Hình thức: <b>Ghép đoàn</b>
+            </div>
+            <div class="booking-actions">
+                <a href="tel:0934444738" class="btn-red">Gọi 093.4444.738</a>
+                <a href="https://zalo.me/8493.4444.738" target="_blank" rel="noopener" class="btn-outline-red">Chat
+                    Zalo</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div><strong>dulichmientay</strong></div>
+            <div>Hotline: 093.4444.738 (Hoàng Việt) · Email: hello@dulichmientay.vn</div>
+            <div>© 2026 dulichmientay</div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery: đổi ảnh chính khi bấm thumbnail
+        const mainImage = document.getElementById('mainImage');
+        const thumbs = document.querySelectorAll('#thumbs img');
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                mainImage.src = thumb.dataset.full;
+                thumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+        });
+
+        // Lịch trình: mở/đóng từng ngày (accordion)
+        document.querySelectorAll('.day-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.closest('.day-item').classList.toggle('open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

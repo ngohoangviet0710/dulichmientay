@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Cồn Chim - Trà Vinh 1 ngày - dulichmientay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #D42A2A;
+            --red-dark: #B31E1E;
+            --text: #222222;
+            --text-light: #666666;
+            --border: #E5E5E5;
+            --bg-gray: #F7F7F7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Be Vietnam Pro', Arial, sans-serif;
+            color: var(--text);
+            background: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav.main-nav a:hover {
+            color: var(--red);
+        }
+
+        .header-hotline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .header-hotline .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-hotline .icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--red);
+        }
+
+        /* Layout */
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px 60px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Gallery */
+        .gallery {
+            margin-bottom: 8px;
+        }
+
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--bg-gray);
+            border: 1px solid var(--border);
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .gallery-thumbs img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.75;
+            transition: opacity .15s ease, border-color .15s ease;
+        }
+
+        .gallery-thumbs img:hover {
+            opacity: 1;
+        }
+
+        .gallery-thumbs img.active {
+            opacity: 1;
+            border-color: var(--red);
+        }
+
+        /* Title block */
+        .tour-title-block {
+            margin-top: 22px;
+        }
+
+        .tour-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--red);
+            background: rgba(212, 42, 42, 0.08);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        h1.tour-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+
+        .tour-route {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .tour-intro {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            background: var(--bg-gray);
+            margin-bottom: 28px;
+        }
+
+        .quick-info div {
+            font-size: 13px;
+        }
+
+        .quick-info .label {
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .quick-info .val {
+            font-weight: 700;
+        }
+
+        /* Section headings */
+        .section-block {
+            margin-bottom: 34px;
+        }
+
+        .section-block h2 {
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--red);
+            display: inline-block;
+            margin: 0 0 18px;
+        }
+
+        /* Itinerary */
+        .day-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-gray);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .day-number {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day-header-text {
+            flex: 1;
+        }
+
+        .day-header-text .day-label {
+            font-size: 11px;
+            color: var(--red);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .day-header-text .day-title {
+            font-size: 14.5px;
+            font-weight: 600;
+        }
+
+        .day-toggle {
+            font-size: 18px;
+            color: var(--text-light);
+            transition: transform .2s ease;
+        }
+
+        .day-item.open .day-toggle {
+            transform: rotate(45deg);
+        }
+
+        .day-body {
+            display: none;
+            padding: 18px 20px 20px 62px;
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--text-light);
+        }
+
+        .day-item.open .day-body {
+            display: block;
+        }
+
+        .day-body strong {
+            color: var(--text);
+        }
+
+        .day-body p {
+            margin: 0 0 12px;
+        }
+
+        .day-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-body ul {
+            margin: 0 0 12px;
+            padding-left: 18px;
+        }
+
+        .day-body ul li {
+            margin-bottom: 6px;
+        }
+
+        .day-body ul li::marker {
+            color: var(--red);
+        }
+
+        /* Menu table */
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .menu-table caption {
+            text-align: left;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 16px;
+            background: var(--bg-gray);
+            border: 1px solid var(--border);
+            border-bottom: none;
+        }
+
+        .menu-table td {
+            padding: 10px 16px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .menu-table tr:nth-child(even) td {
+            background: var(--bg-gray);
+        }
+
+        /* Included / excluded */
+        .include-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .include-col h3 {
+            font-size: 14px;
+            margin: 0 0 10px;
+            color: var(--red);
+        }
+
+        .include-col ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .include-col ul li::marker {
+            color: var(--red);
+        }
+
+        /* Sidebar booking card */
+        .booking-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            position: sticky;
+            top: 80px;
+        }
+
+        .booking-price-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .booking-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--red);
+            margin: 2px 0 14px;
+        }
+
+        .booking-price small {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .booking-info {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .booking-info b {
+            color: var(--text);
+        }
+
+        .booking-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover {
+            background: var(--red-dark);
+        }
+
+        .btn-outline-red {
+            background: #fff;
+            color: var(--red);
+            border: 1px solid var(--red);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-outline-red:hover {
+            background: rgba(212, 42, 42, 0.06);
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            border-top: 1px solid var(--border);
+            padding: 28px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-inner strong {
+            color: var(--text);
+        }
+
+        @media (max-width:860px) {
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                position: static;
+            }
+
+            .quick-info {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:640px) {
+            nav.main-nav {
+                display: none;
+            }
+
+            .gallery-thumbs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .day-body {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">dulich<span>mientay</span></div>
+            <nav class="main-nav">
+                <a href="../index.html">Tour du lịch</a>
+                <a href="../lien-he.html">Liên hệ</a>
+            </nav>
+            <a href="tel:0934444738" class="header-hotline">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"
+                            fill="white" />
+                    </svg>
+                </span>
+                093.4444.738 (Hoàng Việt)
+            </a>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="../index.html">Tour du lịch</a> / Cồn Chim - Trà Vinh 1 ngày
+    </div>
+
+    <div class="page">
+
+        <!-- CỘT TRÁI: nội dung chi tiết -->
+        <div>
+
+            <!-- Gallery -->
+            <div class="gallery">
+                <div class="gallery-main">
+                    <img id="mainImage" src="/image/sg-con-chim/image1.jpg" alt="Tour Cồn Chim Trà Vinh">
+                </div>
+                <div class="gallery-thumbs" id="thumbs">
+                    <img class="active" data-full="/image/sg-con-chim/image1.jpg" src="/image/sg-con-chim/image1.jpg"
+                        alt="Ảnh 1">
+                    <img data-full="/image/sg-con-chim/image2.jpg" src="/image/sg-con-chim/image2.jpg" alt="Ảnh 2">
+                    <img data-full="/image/sg-con-chim/image3.jpg" src="/image/sg-con-chim/image3.jpg" alt="Ảnh 3">
+                    <img data-full="/image/sg-con-chim/image4.jpg" src="/image/sg-con-chim/image4.jpg" alt="Ảnh 4">
+                </div>
+            </div>
+
+            <!-- Tiêu đề -->
+            <div class="tour-title-block">
+                <div class="tour-tags">
+                    <span class="tag">1 ngày</span>
+                    <span class="tag">Ô tô</span>
+                    <span class="tag">Ghép đoàn</span>
+                </div>
+                <h1 class="tour-title">Tour Cồn Chim - Trà Vinh 1 Ngày</h1>
+                <div class="tour-route">TP.HCM - Mekong Restop - Cồn Chim - Ao Bà Om - Chùa Âng - Bảo tàng Văn hóa Dân
+                    tộc Khmer - TP.HCM</div>
+                <div class="tour-intro">Tìm hiểu văn hóa Khmer, tận hưởng không khí trong lành của vùng đất có bầu không
+                    khí trong lành Top 3 Đông Á.</div>
+
+                <div class="quick-info">
+                    <div>
+                        <div class="label">Khởi hành</div>
+                        <div class="val">Thứ 7, Chủ Nhật hàng tuần</div>
+                    </div>
+                    <div>
+                        <div class="label">Phương tiện</div>
+                        <div class="val">Ô tô</div>
+                    </div>
+                    <div>
+                        <div class="label">Điểm khởi hành</div>
+                        <div class="val">TP. Hồ Chí Minh</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lịch trình -->
+            <div class="section-block">
+                <h2>Lịch trình chi tiết</h2>
+
+                <div class="day-item open">
+                    <div class="day-header">
+                        <div class="day-number">S</div>
+                        <div class="day-header-text">
+                            <div class="day-label">Buổi sáng</div>
+                            <div class="day-title">TP.HCM – Cồn Chim</div>
+                        </div>
+                        <div class="day-toggle">+</div>
+                    </div>
+                    <div class="day-body">
+                        <p>Xe và hướng dẫn viên đón quý khách tại TP.HCM. Khởi hành đi Trà Vinh…</p>
+                        <p>Quý khách dừng chân tại <strong>Mekong Restop</strong>. Tự do ăn uống, chụp ảnh check-in
+                            trong không gian đậm chất miền Tây với những căn nhà làm bằng tre, nứa, mái rơm gần gũi với
+                            làng quê Việt Nam. Xung quanh là những dòng sông uốn lượn, cầu tre, xuồng gỗ, lưới bắt cá…
+                            là những khám phá hấp dẫn cho du khách.</p>
+                        <p>Xe đưa đoàn đến bến phà Phước Vinh đi sang Cồn Chim. Đoàn đi tàu ngắm dòng sông Cổ Chiên cùng
+                            nhiều cù lao và cồn nổi đang dần hình thành trên đường đi.</p>
+                        <p>Quý khách đến <strong>Cồn Chim</strong>, nhận nón lá và chụp ảnh lưu niệm tại Cổng làng Cồn
+                            Chim. Sau đó đi tản bộ hoặc đạp xe trên con đường làng yên bình tận hưởng bầu không khí
+                            trong lành.</p>
+                        <p><strong>Đoàn bắt đầu trải nghiệm:</strong></p>
+                        <ul>
+                            <li><strong>Vườn Dừa:</strong> ngắm con đường Dừa, thưởng thức dừa tươi bằng ống hút sậy
+                                thân thiện môi trường. Hướng dẫn cách thắt lá dừa làm giỏ xách, cào cào, đồng hồ…</li>
+                            <li><strong>Câu tôm Càng xanh:</strong> tự tay câu và bắt tôm.</li>
+                            <li><strong>Trò chơi dân gian:</strong> quay về tuổi thơ với nhảy dây, bắn bi, tạc lon…</li>
+                            <li>Thưởng thức món đá bào sữa tuổi thơ.</li>
+                            <li>Thưởng thức bánh xèo miền Tây.</li>
+                        </ul>
+                        <p>HDV đưa khách về lại TP.HCM. Kết thúc chương trình, HDV chào tạm biệt và hẹn gặp lại quý
+                            khách!</p>
+                    </div>
+                </div>
+
+                <div class="day-item">
+                    <div class="day-header">
+                        <div class="day-number">T</div>
+                        <div class="day-header-text">
+                            <div class="day-label">Buổi trưa</div>
+                            <div class="day-title">Dùng cơm trưa cùng người dân địa phương</div>
+                        </div>
+                        <div class="day-toggle">+</div>
+                    </div>
+                    <div class="day-body">
+                        <p>Đoàn dùng cơm trưa tại nhà người dân với những món ăn Nam Bộ được chế biến từ sản vật địa
+                            phương. Nghỉ trưa.</p>
+                    </div>
+                </div>
+
+                <div class="day-item">
+                    <div class="day-header">
+                        <div class="day-number">C</div>
+                        <div class="day-header-text">
+                            <div class="day-label">Buổi chiều</div>
+                            <div class="day-title">Ao Bà Om – Chùa Âng – Bảo tàng Khmer – TP.HCM</div>
+                        </div>
+                        <div class="day-toggle">+</div>
+                    </div>
+                    <div class="day-body">
+                        <p><strong>Ao Bà Om (Ao Vuông):</strong> mệnh danh là viên ngọc xanh huyền thoại, biểu tượng văn
+                            hóa và điểm đến du lịch nổi bật của miền Tây Nam Bộ. Không chỉ sở hữu vẻ đẹp nguyên sơ, tĩnh
+                            lặng, nơi đây còn được công nhận là di tích danh lam thắng cảnh cấp quốc gia, gắn liền với
+                            đời sống tâm linh.</p>
+                        <p><strong>Chùa Âng:</strong> ngôi chùa lâu đời nhất trong hệ thống chùa Khmer ở Trà Vinh, xây
+                            dựng cách đây hơn 10 thế kỷ. Không chỉ là công trình kiến trúc cổ kính, chùa còn lưu giữ
+                            nhiều tác phẩm nghệ thuật như tượng thần, tiên nữ, tượng chằn, chim thần và các hình ảnh
+                            liên quan đến Phật Thích Ca.</p>
+                        <p><strong>Bảo tàng Văn hóa Dân tộc Khmer:</strong> gồm 4 phòng trưng bày với khoảng 800 hiện
+                            vật, tư liệu cổ, quý được sưu tầm hoặc khai quật tại địa phương, chia theo 4 chủ đề: Tôn
+                            giáo và tín ngưỡng của người Khmer; Văn hóa - cuộc sống đời thường; Ngành nghề truyền thống
+                            của dân tộc Khmer; Văn hóa - nghệ thuật.</p>
+                        <p>Đoàn khởi hành trở về TP.HCM, kết thúc chương trình tham quan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thực đơn -->
+            <div class="section-block">
+                <h2>Thực đơn</h2>
+                <table class="menu-table">
+                    <caption>Thực đơn bữa trưa</caption>
+                    <tbody>
+                        <tr>
+                            <td>Gỏi bông ban</td>
+                        </tr>
+                        <tr>
+                            <td>Tôm hấp</td>
+                        </tr>
+                        <tr>
+                            <td>Cá lóc hấp bầu</td>
+                        </tr>
+                        <tr>
+                            <td>Kho quẹt rau luộc</td>
+                        </tr>
+                        <tr>
+                            <td>Gà ram</td>
+                        </tr>
+                        <tr>
+                            <td>Canh chua cá ngát</td>
+                        </tr>
+                        <tr>
+                            <td>Cơm trắng, trái cây, trà đá</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Bao gồm -->
+            <div class="section-block">
+                <h2>Giá bao gồm</h2>
+                <div class="include-grid">
+                    <div class="include-col">
+                        <ul>
+                            <li>Ăn chính 1 bữa</li>
+                            <li>Hướng dẫn viên thuyết minh và phục vụ cho đoàn suốt tuyến</li>
+                            <li>Vé tham quan vào cửa một lần các thắng cảnh</li>
+                            <li>Nước suối trên đường (1 chai/ngày)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CỘT PHẢI: đặt tour -->
+        <div class="booking-card">
+            <div class="booking-price-label">Giá</div>
+            <div class="booking-price">Liên hệ <small>/ khách</small></div>
+            <div class="booking-info">
+                Khởi hành: <b>Thứ 7, Chủ Nhật hàng tuần</b><br>
+                Thời gian: <b>1 ngày</b><br>
+                Điểm đón: <b>TP. Hồ Chí Minh</b><br>
+                Phương tiện: <b>Ô tô</b><br>
+                Hình thức: <b>Ghép đoàn</b>
+            </div>
+            <div class="booking-actions">
+                <a href="tel:0934444738" class="btn-red">Gọi 093.4444.738</a>
+                <a href="https://zalo.me/8493.4444.738" target="_blank" rel="noopener" class="btn-outline-red">Chat
+                    Zalo</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div><strong>dulichmientay</strong></div>
+            <div>Hotline: 093.4444.738 (Hoàng Việt) · Email: hello@dulichmientay.vn</div>
+            <div>© 2026 dulichmientay</div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery: đổi ảnh chính khi bấm thumbnail
+        const mainImage = document.getElementById('mainImage');
+        const thumbs = document.querySelectorAll('#thumbs img');
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                mainImage.src = thumb.dataset.full;
+                thumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+        });
+
+        // Lịch trình: mở/đóng từng mục (accordion)
+        document.querySelectorAll('.day-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.closest('.day-item').classList.toggle('open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dulichmientay - Tour chưa được cập nhật</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #D42A2A;
+            --red-dark: #B31E1E;
+            --text: #222222;
+            --text-light: #666666;
+            --border: #E5E5E5;
+            --bg-gray: #F7F7F7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Be Vietnam Pro', Arial, sans-serif;
+            color: var(--text);
+            background: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* Header */
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav.main-nav a:hover {
+            color: var(--red);
+        }
+
+        .header-hotline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--red);
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .header-hotline .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-hotline .icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Not found section */
+        .notfound-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px 70px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .notfound-card {
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 44px 32px;
+            background: #fff;
+        }
+
+        .notfound-icon {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: rgba(212, 42, 42, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+        }
+
+        .notfound-icon svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        .notfound-code {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--red);
+            background: rgba(212, 42, 42, 0.08);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .notfound-card h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 12px;
+            line-height: 1.4;
+        }
+
+        .notfound-card p {
+            font-size: 14.5px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0 0 28px;
+        }
+
+        .notfound-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-red:hover {
+            background: var(--red-dark);
+        }
+
+        .btn-outline-red {
+            background: #fff;
+            color: var(--red);
+            border: 1px solid var(--red);
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-outline-red:hover {
+            background: rgba(212, 42, 42, 0.06);
+        }
+
+        .notfound-hotline {
+            border-top: 1px dashed var(--border);
+            padding-top: 22px;
+            font-size: 13.5px;
+            color: var(--text-light);
+        }
+
+        .notfound-hotline b {
+            color: var(--red);
+            font-size: 16px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            border-top: 1px solid var(--border);
+            padding: 28px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-inner strong {
+            color: var(--text);
+        }
+
+        @media (max-width:640px) {
+            nav.main-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="../" class="logo">dulich<span>mientay</span></a>
+            <nav class="main-nav">
+                <a href="../#tours">Tour du lịch</a>
+                <a href="../lien-he/">Liên hệ</a>
+            </nav>
+            <a href="tel:0934444738" class="header-hotline">
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"
+                            fill="white" />
+                    </svg>
+                </span>
+                093.4444.738 (Hoàng Việt)
+            </a>
+        </div>
+    </header>
+
+    <main class="notfound-wrap">
+        <div class="notfound-card">
+            <div class="notfound-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 9v4M12 16.5h.01" stroke="#D42A2A" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path
+                        d="M10.29 3.86 1.82 18a1.5 1.5 0 0 0 1.29 2.25h17.78A1.5 1.5 0 0 0 22.18 18L13.71 3.86a1.5 1.5 0 0 0-2.42 0Z"
+                        stroke="#D42A2A" stroke-width="2" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <span class="notfound-code">Tour chưa cập nhật</span>
+            <h1>Rất tiếc, thông tin chi tiết tour này hiện chưa được cập nhật</h1>
+            <p>
+                Nội dung tour bạn đang tìm có thể đang trong quá trình cập nhật hoặc đường dẫn không còn chính xác.
+                Vui lòng liên hệ trực tiếp để được nhân viên tư vấn kỹ càng hơn về lịch trình, giá tour và chỗ trống
+                hiện có.
+            </p>
+            <div class="notfound-actions">
+                <a href="../#tours" class="btn-outline-red">Xem các tour khác</a>
+                <a href="https://zalo.me/8493.4444.738" target="_blank" rel="noopener" class="btn-red">Chat Zalo tư
+                    vấn</a>
+            </div>
+            <div class="notfound-hotline">
+                Gọi ngay để được hỗ trợ nhanh nhất
+                <b><a href="tel:0934444738" style="color:inherit;">093.4444.738 (Hoàng Việt)</a></b>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div><strong>dulichmientay</strong></div>
+            <div>Hotline: 093.4444.738 (Hoàng Việt) · Email: ngohoangviet0710@gmail.com</div>
+            <div>© 2026 dulichmientay</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

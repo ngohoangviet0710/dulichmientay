@@ -1,6 +1,7 @@
 const tourList = [
   {
     name: "SG - Mỹ Tho - Bến Tre",
+    slug:'sg-my-tho-ben-tre',
     duration: "1 ngày",
     price: 500000,
     departureDateTime: null,
@@ -12,6 +13,7 @@ const tourList = [
   },
   {
     name: "SG - Cồn Chim (Trà Vinh)",
+    slug:'sg-con-chim',
     duration: "1 ngày",
     price: 990000,
     departureDateTime: null,
@@ -24,6 +26,7 @@ const tourList = [
   },
   {
     name: "SG - Trà Vinh - Bảo Tàng Dừa Sáp",
+    slug:'sg-tra-vinh-bao-tang',
     duration: "1 ngày",
     price: 850000,
     departureDateTime: null,
@@ -36,6 +39,7 @@ const tourList = [
   },
   {
     name: "SG - Mỹ Tho - Bến Tre - Cần Thơ",
+    slug:'2n-1d-sg-my-tho-ben-tre-can-tho',
     duration: "2 ngày 1 đêm",
     price: 1600000,
     departureDateTime: null,
@@ -47,6 +51,7 @@ const tourList = [
   },
   {
     name: "SG - Cần Thơ - Chợ nổi Cái Răng - Cồn Sơn",
+    slug:'sg-can-tho-cho-noi-con-son',
     duration: "2 ngày 1 đêm",
     price: 2190000,
     departureDateTime: null,
@@ -58,6 +63,7 @@ const tourList = [
   },
   {
     name: "Mỹ Tho - Bến Tre - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
+    slug:'my-tho-ben-tre-can-tho-ca-mau-bac-lieu-soc-trang',
     duration: "3 ngày 2 đêm",
     price: 3080000,
     departureDateTime: null,
@@ -69,6 +75,7 @@ const tourList = [
   },
   {
     name: "Mỹ Tho - Bến Tre - Châu Đốc - Chùa Bà - Rừng Tràm Trà Sư - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
+    slug:'4n-3d-my-tho-ben-tre-chau-doc-chua-ba',
     duration: "4 ngày 3 đêm",
     price: 4380000,
     departureDateTime: null,
