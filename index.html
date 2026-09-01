@@ -265,6 +265,19 @@
       color: var(--red);
     }
 
+    .tour-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tour-price-old {
+      font-size: 13px;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
     .tour-actions {
       display: flex;
       flex-direction: column;
@@ -482,31 +495,39 @@
       const items = filter === 'all' ? tourList : tourList.filter(t => t.duration === filter);
 
       items.forEach(tour => {
+        const hasDiscount = tour.discountPrice !== null && tour.discountPrice !== undefined;
+        const priceHtml = hasDiscount
+          ? `<div class="tour-price-wrap">
+           <span class="tour-price">${formatPrice(tour.discountPrice)}</span>
+           <span class="tour-price-old">${formatPrice(tour.price)}</span>
+         </div>`
+          : `<div class="tour-price">${formatPrice(tour.price)}</div>`;
+
         const card = document.createElement('div');
         card.className = 'tour-card';
         card.innerHTML = `
-        <img class="tour-image" src="./image/thumb/${tour.image}" alt="${tour.name}" loading="lazy">
-        <div class="tour-body">
-          <span class="tour-duration">${tour.duration}</span>
-          <div class="tour-name">${tour.name}</div>
-          <div class="tour-info">
-            Điểm khởi hành: <b>${tour.departurePoint}</b><br>
-            Lịch khởi hành: <b>${tour.departureSchedule}</b><br>
-            Hình thức: <b>${tour.type}</b>
-          </div>
-          ${tour.note ? `<div class="tour-note">${tour.note}</div>` : ''}
-          <div class="tour-footer">
-            <div>
-              <div class="tour-price-label">Giá chỉ từ</div>
-              <div class="tour-price">${formatPrice(tour.price)}</div>
+          <img class="tour-image" src="./image/thumb/${tour.image}" alt="${tour.name}" loading="lazy">
+          <div class="tour-body">
+            <span class="tour-duration">${tour.duration}</span>
+            <div class="tour-name">${tour.name}</div>
+            <div class="tour-info">
+              Điểm khởi hành: <b>${tour.departurePoint}</b><br>
+              Lịch khởi hành: <b>${tour.departureSchedule}</b><br>
+              Hình thức: <b>${tour.type}</b>
             </div>
-            <div class="tour-actions">
-              <a href="./chi-tiet-tour/?slug=${tour.slug}.html" class="btn-detail">Chi tiết</a>
-              <button onclick="createModal()" class="btn-book">Liên hệ</button>
+            ${tour.note ? `<div class="tour-note">${tour.note}</div>` : ''}
+            <div class="tour-footer">
+              <div>
+                <div class="tour-price-label">Giá chỉ từ</div>
+                ${priceHtml}
+              </div>
+              <div class="tour-actions">
+                <a href="./chi-tiet-tour/?slug=${tour.slug}.html" class="btn-detail">Chi tiết</a>
+                <button onclick="createModal()" class="btn-book">Liên hệ</button>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
         grid.appendChild(card);
       });
     }
