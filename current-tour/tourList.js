@@ -13,6 +13,97 @@ const tourList = [
     image: "my-tho.jpg"
   },
   {
+    name: "SG - Bến Tre - Khám phá Xứ Dừa",
+    slug: "sg-ben-tre-kham-pha-xu-dua",
+    duration: "1 ngày",
+    price: 1290000,
+    discountPrice: 790000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Chủ nhật hàng tuần",
+    type: "Ghép đoàn",
+    image: "xu-dua.jpg"
+  },
+  {
+    name: "SG - Mẹ Mẫu Tiền Giang",
+    slug: "sg-me-mau-tien-giang",
+    duration: "1 ngày",
+    price: 1290000,
+    discountPrice: 790000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 6, 7, CN hàng tuần",
+    type: "Ghép đoàn",
+    image: "me-mau.jpg"
+  },
+  {
+    name: "SG - Làng nổi Tân Lập",
+    slug: "sg-lang-noi-tan-lap",
+    duration: "1 ngày",
+    price: 1390000,
+    discountPrice: 890000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 7, CN hàng tuần",
+    type: "Ghép đoàn",
+    image: "tan-lap.jpg"
+  },
+  {
+    name: "Tour Chợ nổi Cái Răng - Làng du lịch Mỹ Khách",
+    slug: "tour-cho-noi-cai-rang-lang-du-lich-my-khach",
+    duration: "1 ngày",
+    price: 1180000,
+    discountPrice: 680000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "Bến Ninh Kiều",
+    departureSchedule: "Mỗi ngày",
+    type: "Ghép đoàn",
+    image: "ninh-kieu.jpg"
+  },
+  {
+    name: "SG - Mỹ Tho - Tát mương bắt cá - Bến Tre",
+    slug: "sg-my-tho-tat-muong-bat-ca-ben-tre",
+    duration: "1 ngày",
+    price: 1450000,
+    discountPrice: 950000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Mỗi ngày",
+    type: "Ghép đoàn",
+    image: "bat-ca.jpg"
+  },
+  {
+    name: "SG - Cái Bè - Cù lao Tân Phong",
+    slug: "sg-cai-be-cu-lao-tan-phong",
+    duration: "1 ngày",
+    price: 1650000,
+    discountPrice: 1150000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Mỗi ngày",
+    type: "Ghép đoàn",
+    image: "tan-phong.jpg"
+  },
+  {
+    name: "SG - Cần Thơ - Cồn Sơn",
+    slug: "sg-can-tho-con-son",
+    duration: "1 ngày",
+    price: 1390000,
+    discountPrice: 890000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Mỗi ngày",
+    type: "Ghép đoàn",
+    image: "con-son.jpg"
+  },
+  {
     name: "SG - Cồn Chim (Trà Vinh)",
     slug: "sg-con-chim",
     duration: "1 ngày",
@@ -67,6 +158,32 @@ const tourList = [
     image: "cheo-suong.jpg"
   },
   {
+    name: "SG - Cà Mau - Bạc Liêu - Sóc Trăng",
+    slug: "sg-ca-mau-bac-lieu-soc-trang",
+    duration: "2 ngày 1 đêm",
+    price: 2990000,
+    discountPrice: 2490000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 2, 4, 6, 7 hàng tuần",
+    type: "Ghép đoàn",
+    image: "mien-tay.jpg"
+  },
+  {
+    name: "SG - Châu Đốc - Rừng tràm Trà Sư - Núi Cấm",
+    slug: "sg-chau-doc-rung-tram-tra-su-nui-cam",
+    duration: "2 ngày 1 đêm",
+    price: 2890000,
+    discountPrice: 2390000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 6, 7 hàng tuần",
+    type: "Ghép đoàn",
+    image: "nui-cam.jpg"
+  },
+  {
     name: "Mỹ Tho - Bến Tre - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
     slug: "my-tho-ben-tre-can-tho-ca-mau-bac-lieu-soc-trang",
     duration: "3 ngày 2 đêm",
@@ -80,6 +197,19 @@ const tourList = [
     image: "mui-ca-mau.jpg"
   },
   {
+    name: "SG - Mỹ Tho - Bến Tre - Cần Thơ - Châu Đốc",
+    slug: "sg-my-tho-ben-tre-can-tho-chau-doc",
+    duration: "3 ngày 2 đêm",
+    price: 3680000,
+    discountPrice: 3180000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 2, 5, 7 hàng tuần",
+    type: "Ghép đoàn",
+    image: "mieu-ba.jpg"
+  },
+  {
     name: "Mỹ Tho - Bến Tre - Châu Đốc - Chùa Bà - Rừng Tràm Trà Sư - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
     slug: "4n-3d-my-tho-ben-tre-chau-doc-chua-ba",
     duration: "4 ngày 3 đêm",
@@ -91,5 +221,19 @@ const tourList = [
     departureSchedule: "Thứ 2 và Thứ 5 hàng tuần",
     type: "Ghép đoàn",
     image: "rung-tram.jpg"
+  },
+  {
+    name: "SG - Châu Đốc - Hà Tiên - Rạch Gía - Cà Mau - Bạc Liêu - Sóc Trăng - Cần Thơ",
+    slug: "sg-chau-doc-ha-tien-rach-gia-ca-mau-bac-lieu-soc-trang-can-tho",
+    duration: "5 ngày 4 đêm",
+    price: 6190000,
+    discountPrice: 5690000,
+    departureDateTime: null,
+    hotelStars: null,
+    departurePoint: "TP. Hồ Chí Minh",
+    departureSchedule: "Thứ 4 hàng tuần",
+    type: "Ghép đoàn",
+    image: "mui-nai.jpg"
   }
 ];
+
